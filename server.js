@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 6000;
 // MODULE IMPORTS
 const Product = require('./modules/Product.js');
 const Customer = require('./modules/Customer.js');
+// const id = require('./modules/ID');
 
 // INIT DATABASE
 const databaseInit = () => {
@@ -21,12 +22,12 @@ const databaseInit = () => {
 
 // FUNCTIONS
 const createURL = search => {
-    return `<img src="http://placeimg.com/640/480/${search}">`;
+    return `http://placeimg.com/640/480/${search}`;
 };
 
 const createProduct = async (name, price) => {
     let imgURL = createURL(name);
-    let product = new Product.Product(name, price, imgURL);
+    let product = new Product(name, price, imgURL);
     console.log(product);
     const response = await database
         .get('store[0].products')

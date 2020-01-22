@@ -4,16 +4,34 @@
       "customers": [],
       "products": [
         {
-          "id": 1,
-          "name": "TV",
-          "price": "500",
-          "img": "<img src=\"http://placeimg.com/640/480/TV\">"
+          "_id": 1,
+          "name": "test4",
+          "price": "4",
+          "img": "<img src=\"http://placeimg.com/640/480/test4\">"
         },
         {
-          "id": 1,
-          "name": "Motorcycle",
-          "price": "7000",
-          "img": "<img src=\"http://placeimg.com/640/480/Motorcycle\">"
+          "_id": 1,
+          "name": "test4",
+          "price": "4",
+          "img": "<img src=\"http://placeimg.com/640/480/test4\">"
+        },
+        {
+          "_id": 1,
+          "name": "test4",
+          "price": "4",
+          "img": "http://placeimg.com/640/480/test4"
+        },
+        {
+          "_id": 1,
+          "name": "test4",
+          "price": "4",
+          "img": "http://placeimg.com/640/480/test4"
+        },
+        {
+          "_id": 1,
+          "name": "test4",
+          "price": "4",
+          "img": "http://placeimg.com/640/480/test4"
         }
       ]
     }
