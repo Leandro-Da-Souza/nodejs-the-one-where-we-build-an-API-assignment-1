@@ -8,6 +8,12 @@
           "name": "TV",
           "price": "500",
           "img": "<img src=\"http://placeimg.com/640/480/TV\">"
+        },
+        {
+          "id": 1,
+          "name": "Motorcycle",
+          "price": "7000",
+          "img": "<img src=\"http://placeimg.com/640/480/Motorcycle\">"
         }
       ]
     }
