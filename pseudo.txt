@@ -1,0 +1,23 @@
+{
+	store: [
+		customers: [
+			customer: {
+				id: int,
+				name: string,
+				basket: []
+			}
+		],
+		products: [
+			product : {
+				id: int,
+				name: string,
+				img: url/string
+			}
+		],
+	]
+}
+
+skapa en json fil med namn store.json, där i ha ett store objekt som är en array med två värden som är objekt: customers och products. dessa i sin tur är arrayer som kan fyllas med customer och product objekt. dessa objekt ska ha värden som id och name. en customer ska utöver id och namn ha en basket som är en array av produkter från products arrayen. en product ska utöver id och namn ha ett img värde som är en url. 
+
+skapa klass för product och customer. skapa en funktion som dynamiskt genererar en url beroende på namnet på produkten. skapa en funktion som dynamiskt sätter id på både en customer och produkt.
+
