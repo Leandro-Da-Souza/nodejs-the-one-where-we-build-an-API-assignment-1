@@ -2,7 +2,14 @@
   "store": [
     {
       "customers": [],
-      "products": []
+      "products": [
+        {
+          "id": 1,
+          "name": "TV",
+          "price": "500",
+          "img": "<img src=\"http://placeimg.com/640/480/TV\">"
+        }
+      ]
     }
   ]
 }

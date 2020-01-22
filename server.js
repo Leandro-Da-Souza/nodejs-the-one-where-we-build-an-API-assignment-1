@@ -8,8 +8,8 @@ const app = express();
 const PORT = process.env.PORT || 6000;
 
 // MODULE IMPORTS
-const Product = require('./modules/Product');
-const Customer = require('./modules/Customer');
+const Product = require('./modules/Product.js');
+const Customer = require('./modules/Customer.js');
 
 // INIT DATABASE
 const databaseInit = () => {
@@ -26,7 +26,8 @@ const createURL = search => {
 
 const createProduct = async (name, price) => {
     let imgURL = createURL(name);
-    let product = new Product(name, price, imgURL);
+    let product = new Product.Product(name, price, imgURL);
+    console.log(product);
     const response = await database
         .get('store[0].products')
         .push(product)
@@ -36,9 +37,7 @@ const createProduct = async (name, price) => {
 const createCustomer = async name => {};
 
 // ROUTES
-app.get('/', (req, res) => {
-    res.send('HELLO');
-});
+app.get('/', (req, res) => {});
 
 app.post('/products', async (req, res) => {
     let name = req.query.name;
