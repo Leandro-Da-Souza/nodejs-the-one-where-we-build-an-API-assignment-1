@@ -1,6 +1,10 @@
+const ID = require('./ID');
 class Product {
-    constructor(id, name, img) {
-        (this.id = id), (this.name = name), (this.img = img);
+    constructor(name, price, img) {
+        (id = ID.idGen()),
+            (this.name = name),
+            (this.price = price),
+            (this.img = img);
     }
 }
 

@@ -1,6 +1,7 @@
+const ID = require('./ID');
 class Customer {
-    constructor(id, name) {
-        (this.id = id), (this.name = name), (basket = []);
+    constructor(name) {
+        (id = ID.idGen()), (this.name = name), (basket = []);
     }
 }
 
