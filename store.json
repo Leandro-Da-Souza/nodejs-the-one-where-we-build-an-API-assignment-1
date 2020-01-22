@@ -1,3 +1,8 @@
 {
-  "store": []
+  "store": [
+    {
+      "customers": [],
+      "products": []
+    }
+  ]
 }
