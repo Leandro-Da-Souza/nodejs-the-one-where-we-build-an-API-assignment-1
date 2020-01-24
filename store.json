@@ -1,39 +1,6 @@
 {
-  "store": [
-    {
-      "customers": [],
-      "products": [
-        {
-          "_id": 1,
-          "name": "test4",
-          "price": "4",
-          "img": "<img src=\"http://placeimg.com/640/480/test4\">"
-        },
-        {
-          "_id": 1,
-          "name": "test4",
-          "price": "4",
-          "img": "<img src=\"http://placeimg.com/640/480/test4\">"
-        },
-        {
-          "_id": 1,
-          "name": "test4",
-          "price": "4",
-          "img": "http://placeimg.com/640/480/test4"
-        },
-        {
-          "_id": 1,
-          "name": "test4",
-          "price": "4",
-          "img": "http://placeimg.com/640/480/test4"
-        },
-        {
-          "_id": 1,
-          "name": "test4",
-          "price": "4",
-          "img": "http://placeimg.com/640/480/test4"
-        }
-      ]
+    "store": {
+        "customers": [],
+        "products": []
     }
-  ]
 }

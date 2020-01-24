@@ -16,7 +16,7 @@ const Customer = require('./modules/Customer.js');
 const databaseInit = () => {
     const initDatabase = database.has('store').value();
     if (!initDatabase) {
-        database.defaults({ store: [{ customers: [], products: [] }] }).write();
+        database.defaults({ store: { customers: [], products: [] } }).write();
     }
 };
 
@@ -30,7 +30,7 @@ const createProduct = async (name, price) => {
     let product = new Product(name, price, imgURL);
     console.log(product);
     const response = await database
-        .get('store[0].products')
+        .get('store.products')
         .push(product)
         .write();
     return response;

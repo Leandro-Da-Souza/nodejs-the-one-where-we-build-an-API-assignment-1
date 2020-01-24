@@ -6,11 +6,11 @@
 
 // module.exports = { idGen(id) };
 
-let id = (function(n) {
-    return function() {
-        n += 1;
-        return n;
-    };
-})(0);
+// let id = (function(n) {
+//     return function() {
+//         n += 1;
+//         return n;
+//     };
+// })(0);
 
-module.exports = { id };
+// module.exports = { id };
