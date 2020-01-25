@@ -37,6 +37,11 @@ const createProduct = async (name, price) => {
         .write();
     return response;
 };
+
+const getProducts = async () => {
+    return await database.get('store.products').value();
+};
+
 const createCustomer = async (name, email) => {
     let id = uuid();
     let customer = new Customer(id, name, email);
@@ -46,6 +51,10 @@ const createCustomer = async (name, email) => {
         .push(customer)
         .write();
     return response;
+};
+
+const getCustomers = async () => {
+    return await database.get('store.customers').value();
 };
 
 // ROUTES
@@ -60,12 +69,24 @@ app.post('/products', async (req, res) => {
     res.send(data);
 });
 
+// Get all products
+app.get('/products', async (req, res) => {
+    let data = await getProducts();
+    res.send(data);
+});
+
 // Create a customer
 app.post('/customers', async (req, res) => {
     let name = req.query.name;
     let email = req.query.email;
 
     let data = await createCustomer(name, email);
+    res.send(data);
+});
+
+// get all customers
+app.get('/customers', async (req, res) => {
+    let data = await getCustomers();
     res.send(data);
 });
 
