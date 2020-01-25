@@ -8,18 +8,18 @@
 // }
 
 module.exports = class Product {
-    constructor(name, price, img) {
-        (this._id = Product.incrementId()),
+    constructor(id, name, price, img) {
+        (this._id = id),
             (this.name = name),
             (this.price = price),
             (this.img = img);
     }
 
-    static incrementId() {
-        if (!this.latestId) this.latestId = 1;
-        else this.latestId++;
-        return this.latestId++;
-    }
+    // static incrementId() {
+    //     if (!this.latestId) this.latestId = 1;
+    //     else this.latestId++;
+    //     return this.latestId++;
+    // }
 };
 // module.exports = { Product };
 

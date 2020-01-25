@@ -1,6 +1,25 @@
 {
-    "store": {
-        "customers": [],
-        "products": []
-    }
+  "store": {
+    "customers": [],
+    "products": [
+      {
+        "_id": "3b8790b0-3f5d-11ea-a964-8b07a75269e7",
+        "name": "test5",
+        "price": "4",
+        "img": "http://placeimg.com/640/480/test5"
+      },
+      {
+        "_id": "3cb4ed20-3f5d-11ea-ae96-4325f994ee58",
+        "name": "test5",
+        "price": "4",
+        "img": "http://placeimg.com/640/480/test5"
+      },
+      {
+        "_id": "48a17270-3f5d-11ea-ae6b-89a1d81796c1",
+        "name": "test7",
+        "price": "10",
+        "img": "http://placeimg.com/640/480/test7"
+      }
+    ]
+  }
 }
