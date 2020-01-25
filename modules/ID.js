@@ -1,11 +1,3 @@
-// let id = 0;
-// function idGen(id) {
-//     id++;
-//     return id;
-// }
-
-// module.exports = { idGen(id) };
-
 module.exports = ID = (function(n) {
     return function() {
         n += 1;
@@ -13,4 +5,4 @@ module.exports = ID = (function(n) {
     };
 })(0);
 
-// module.exports = { id };
+// CAN MAYBE BE USED IN CLIENT SIDE CODE? WILL SEE

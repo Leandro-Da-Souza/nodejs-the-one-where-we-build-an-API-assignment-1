@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 6000;
 // MODULE IMPORTS
 const Product = require('./modules/Product.js');
 const Customer = require('./modules/Customer.js');
-const ID = require('./modules/ID');
+// const ID = require('./modules/ID');
 
 // INIT DATABASE
 const databaseInit = () => {
@@ -37,16 +37,35 @@ const createProduct = async (name, price) => {
         .write();
     return response;
 };
-const createCustomer = async name => {};
+const createCustomer = async (name, email) => {
+    let id = uuid();
+    let customer = new Customer(id, name, email);
+    console.log(customer);
+    const response = await database
+        .get('store.customers')
+        .push(customer)
+        .write();
+    return response;
+};
 
 // ROUTES
 app.get('/', (req, res) => {});
 
+// Create a product
 app.post('/products', async (req, res) => {
     let name = req.query.name;
     let price = req.query.price;
 
     let data = await createProduct(name, price);
+    res.send(data);
+});
+
+// Create a customer
+app.post('/customers', async (req, res) => {
+    let name = req.query.name;
+    let email = req.query.email;
+
+    let data = await createCustomer(name, email);
     res.send(data);
 });
 

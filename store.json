@@ -1,6 +1,19 @@
 {
   "store": {
-    "customers": [],
+    "customers": [
+      {
+        "id": "efcaff50-3f60-11ea-9ad4-f537565fb758",
+        "name": "Julie",
+        "email": "Julierules@gmail.com",
+        "basket": []
+      },
+      {
+        "id": "f6a796d0-3f60-11ea-80cd-8bb22b23e2bf",
+        "name": "Dave",
+        "email": "Imsorrydave@gmail.com",
+        "basket": []
+      }
+    ],
     "products": [
       {
         "_id": "3b8790b0-3f5d-11ea-a964-8b07a75269e7",

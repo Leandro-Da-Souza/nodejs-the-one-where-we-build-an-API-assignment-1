@@ -1,8 +1,8 @@
-const ID = require('./ID');
-class Customer {
-    constructor(name) {
-        (id = ID.idGen()), (this.name = name), (basket = []);
+module.exports = class Customer {
+    constructor(id, name, email) {
+        (this.id = id),
+            (this.name = name),
+            (this.email = email),
+            (this.basket = []);
     }
-}
-
-module.exports = { Customer };
+};
