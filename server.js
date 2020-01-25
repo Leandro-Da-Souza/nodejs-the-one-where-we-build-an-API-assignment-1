@@ -1,4 +1,4 @@
-// IMPORTS
+/* IMPORTS */
 const express = require('express');
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -8,7 +8,7 @@ const database = lowdb(adapter);
 const app = express();
 const PORT = process.env.PORT || 6000;
 
-// MODULE IMPORTS
+/* MODULE IMPORTS */
 const Product = require('./modules/Product.js');
 const Customer = require('./modules/Customer.js');
 // const ID = require('./modules/ID');
@@ -21,7 +21,7 @@ const databaseInit = () => {
     }
 };
 
-// FUNCTIONS
+/* FUNCTIONS */
 const createURL = search => {
     return `http://placeimg.com/640/480/${search}`;
 };
@@ -38,8 +38,12 @@ const createProduct = async (name, price) => {
     return response;
 };
 
-const getProducts = async () => {
+const getAllProducts = async () => {
     return await database.get('store.products').value();
+};
+
+const getProduct = async i => {
+    return await database.get(`store.products[${i}]`).value();
 };
 
 const createCustomer = async (name, email) => {
@@ -53,12 +57,18 @@ const createCustomer = async (name, email) => {
     return response;
 };
 
-const getCustomers = async () => {
+const getAllCustomers = async () => {
     return await database.get('store.customers').value();
 };
 
-// ROUTES
-app.get('/', (req, res) => {});
+const getCustomer = async i => {
+    return await database.get(`store.customers[${i}]`).value();
+};
+
+/* ROUTES */
+app.get('/', (req, res) => {
+    res.send('WELCOME TO THE STORE');
+});
 
 // Create a product
 app.post('/products', async (req, res) => {
@@ -71,7 +81,14 @@ app.post('/products', async (req, res) => {
 
 // Get all products
 app.get('/products', async (req, res) => {
-    let data = await getProducts();
+    let data = await getAllProducts();
+    res.send(data);
+});
+
+// get single product
+app.get('/products/:id', async (req, res) => {
+    let i = req.params.id;
+    let data = await getProduct(i);
     res.send(data);
 });
 
@@ -84,13 +101,22 @@ app.post('/customers', async (req, res) => {
     res.send(data);
 });
 
-// get all customers
+// Get all customers
 app.get('/customers', async (req, res) => {
-    let data = await getCustomers();
+    let data = await getAllCustomers();
     res.send(data);
 });
 
-// LISTEN TO SERVER
+// get single customer
+app.get('/customers/:id', async (req, res) => {
+    let i = parseInt(req.params.id);
+    console.log(i);
+    let data = await getCustomer(i);
+
+    res.send(data);
+});
+
+/* LISTEN TO SERVER */
 app.listen(PORT, () => {
     console.log(`Port open at ${PORT}...`);
     databaseInit();
