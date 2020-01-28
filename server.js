@@ -42,8 +42,11 @@ const getAllProducts = async () => {
     return await database.get('store.products').value();
 };
 
-const getProduct = async i => {
-    return await database.get(`store.products[${i}]`).value();
+const getProduct = async id => {
+    return await database
+        .get(`store.products`)
+        .find({ _id: `${id}` })
+        .value();
 };
 
 const createCustomer = async (name, email) => {
@@ -61,8 +64,11 @@ const getAllCustomers = async () => {
     return await database.get('store.customers').value();
 };
 
-const getCustomer = async i => {
-    return await database.get(`store.customers[${i}]`).value();
+const getCustomer = async id => {
+    return await database
+        .get(`store.customers`)
+        .find({ id: `${id}` })
+        .value();
 };
 
 /* ROUTES */
@@ -109,7 +115,7 @@ app.get('/customers', async (req, res) => {
 
 // get single customer
 app.get('/customers/:id', async (req, res) => {
-    let i = parseInt(req.params.id);
+    let i = req.params.id;
     console.log(i);
     let data = await getCustomer(i);
 
