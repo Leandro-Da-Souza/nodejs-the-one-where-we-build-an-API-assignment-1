@@ -25,3 +25,16 @@ skapa klass för product och customer. skapa en funktion som dynamiskt genererar
 
 en användare (customer) ska kunna lägga till varor i in varukorg (basket) och ta bort varor från sin korg.
 
+29/1 
+
+klar med crud funktionalitet på customers och products. 
+lägg till funktionalitet för att kunna lägga till produkter i en customers basket och ta bort. även:
+
+Endpoint:s för följande:
+Hämta alla produkter (sedan nedan på vad en produkt ska innehålla).
+Kunna lägga till produkter i en varukorg.
+Kunna ta bort produkter i varukorgen.
+Hämta varukorgen med alla tillagda produkter.
+Man ska inte kunna lägga till samma produkt i varukorgen igen.
+Man ska få ett felmeddelande om man försöker lägga till en produkt som inte finns.
+Man ska få ett felmeddelande om man försöker ta bort en produkt som inte finns.
