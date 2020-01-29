@@ -190,6 +190,64 @@ app.delete('/customers/:id', async (req, res) => {
     res.send(data);
 });
 
+/**
+ * Assignment Routes And Functionality
+ */
+
+const addToBasket = async (custID, prodID) => {
+    let customer = await getCustomer(custID);
+    let product = await getProduct(prodID);
+    if (!product) {
+        return 'No such product found';
+    }
+    let basket = await database
+        .get(`store.customers`)
+        .find({ id: custID })
+        .get('basket')
+        .value();
+    if (basket.includes(product) === false) {
+        basket.push(product);
+        return await database
+            .get('store.customers')
+            .find({ id: custID })
+            .assign({ basket })
+            .write();
+    } else if (basket.includes(product) === true) {
+        return `I'm Afraid I Cant Let You Do That ${customer.name}`;
+    }
+};
+
+app.post('/addToBasket', async (req, res) => {
+    let customerID = req.query.customerID;
+    let productID = req.query.productID;
+    let data = await addToBasket(customerID, productID);
+    res.send(data);
+});
+
+const deleteFromBasket = async (custID, prodID) => {
+    let customer = await getCustomer(custID);
+    let product = await getProduct(prodID);
+    let basket = await database
+        .get('store.customers')
+        .find({ id: custID })
+        .get('basket')
+        .value();
+    basket.splice(basket.indexOf(product), 1);
+    return await database
+        .get('store.customers')
+        .find({ id: custID })
+        .assign({ basket })
+        .write();
+};
+
+app.delete('/deleteFromBasket', async (req, res) => {
+    let data = await deleteFromBasket(
+        req.query.customerID,
+        req.query.productID
+    );
+    res.send(data);
+});
+
 /* LISTEN TO SERVER */
 app.listen(PORT, () => {
     console.log(`Port open at ${PORT}...`);
