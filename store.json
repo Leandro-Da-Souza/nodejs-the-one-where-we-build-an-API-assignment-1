@@ -2,12 +2,6 @@
   "store": {
     "customers": [
       {
-        "id": "efcaff50-3f60-11ea-9ad4-f537565fb758",
-        "name": "Juliet",
-        "basket": [],
-        "email": "Romeo"
-      },
-      {
         "id": "f6a796d0-3f60-11ea-80cd-8bb22b23e2bf",
         "name": "Dave",
         "email": "Imsorrydave@gmail.com",
@@ -20,12 +14,6 @@
         "name": "DASDASD",
         "price": "4000",
         "img": "http://placeimg.com/640/480/DASDASD"
-      },
-      {
-        "_id": "3cb4ed20-3f5d-11ea-ae96-4325f994ee58",
-        "img": "http://placeimg.com/640/480/Holy",
-        "name": "Holy",
-        "price": "Guacamole"
       },
       {
         "_id": "48a17270-3f5d-11ea-ae6b-89a1d81796c1",

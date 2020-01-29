@@ -63,6 +63,14 @@ const updateProduct = async (id, newName, newPrice) => {
     return newProd;
 };
 
+const deleteProduct = async id => {
+    let deletedProd = await database
+        .get('store.products')
+        .remove({ _id: id })
+        .write();
+    return deletedProd;
+};
+
 const createCustomer = async (name, email) => {
     let id = uuid();
     let customer = new Customer(id, name, email);
@@ -92,6 +100,14 @@ const getCustomer = async id => {
         .get(`store.customers`)
         .find({ id: `${id}` })
         .value();
+};
+
+const deleteCustomer = async id => {
+    let deletedCust = await database
+        .get('store.customers')
+        .remove({ id: id })
+        .write();
+    return deletedCust;
 };
 
 /* ROUTES */
@@ -129,6 +145,12 @@ app.get('/products/:id', async (req, res) => {
     res.send(data);
 });
 
+// delete a product
+app.delete('/products/:id', async (req, res) => {
+    let data = await deleteProduct(req.params.id);
+    res.send(data);
+});
+
 // Create a customer
 app.post('/customers', async (req, res) => {
     let name = req.query.name;
@@ -160,6 +182,11 @@ app.put('/customers/:id', async (req, res) => {
         req.query.newEmail
     );
 
+    res.send(data);
+});
+
+app.delete('/customers/:id', async (req, res) => {
+    let data = await deleteCustomer(req.params.id);
     res.send(data);
 });
 
