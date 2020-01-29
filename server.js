@@ -49,6 +49,20 @@ const getProduct = async id => {
         .value();
 };
 
+const updateProduct = async (id, newName, newPrice) => {
+    let newProd = await database
+        .get('store.products')
+        .find({ _id: id })
+        .assign(
+            { name: newName },
+            { price: newPrice },
+            { img: createURL(newName) }
+        )
+        .write();
+
+    return newProd;
+};
+
 const createCustomer = async (name, email) => {
     let id = uuid();
     let customer = new Customer(id, name, email);
@@ -58,6 +72,15 @@ const createCustomer = async (name, email) => {
         .push(customer)
         .write();
     return response;
+};
+
+const updateCustomer = async (id, newName, newEmail) => {
+    let newCust = await database
+        .get('store.customers')
+        .find({ id: id })
+        .assign({ name: newName }, { email: newEmail })
+        .write();
+    return newCust;
 };
 
 const getAllCustomers = async () => {
@@ -72,8 +95,16 @@ const getCustomer = async id => {
 };
 
 /* ROUTES */
-app.get('/', (req, res) => {
-    res.send('WELCOME TO THE STORE');
+app.get('/', async (req, res) => {});
+
+// update a product
+app.put('/products/:id', async (req, res) => {
+    let data = await updateProduct(
+        req.params.id,
+        req.query.newName,
+        req.query.newPrice
+    );
+    res.send(data);
 });
 
 // Create a product
@@ -118,6 +149,16 @@ app.get('/customers/:id', async (req, res) => {
     let i = req.params.id;
     console.log(i);
     let data = await getCustomer(i);
+
+    res.send(data);
+});
+
+app.put('/customers/:id', async (req, res) => {
+    let data = await updateCustomer(
+        req.params.id,
+        req.query.newName,
+        req.query.newEmail
+    );
 
     res.send(data);
 });
