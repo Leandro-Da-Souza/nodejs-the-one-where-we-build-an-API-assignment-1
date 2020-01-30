@@ -5,10 +5,19 @@ https://github.com/Leandro-Da-Souza/nodejs-the-one-where-we-build-an-API-assignm
 
 samt uppgift endpoints, vissa behöver dock parametrar som jag lägger under 
 
-få alla produkter:
+hämta alla produkter:
 localhost:6000/products GET
 
 lägg till produkt i varukorg:
-localhost:6000/addToBasket POST 
-här behövs parameter customerID samt productID
+localhost:6000/addToBasket?customerID=&productID POST 
+
+hämta varukorg:
+localhost:6000/getBasket?customerID= GET
+
+här är parameter värden för att få endpoints att funka:
+
+customerID=f6a796d0-3f60-11ea-80cd-8bb22b23e2bf
+productID=48a17270-3f5d-11ea-ae6b-89a1d81796c1
+
+
 
