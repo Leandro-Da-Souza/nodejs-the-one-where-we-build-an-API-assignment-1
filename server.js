@@ -205,14 +205,18 @@ const addToBasket = async (custID, prodID) => {
         .find({ id: custID })
         .get('basket')
         .value();
-    if (basket.includes(product) === false) {
+    let test = basket.find(prod => prod._id === prodID);
+    if (test === undefined) {
         basket.push(product);
+        console.log(product);
+        console.log(basket);
+        console.log(basket.includes(product) === false);
         return await database
             .get('store.customers')
             .find({ id: custID })
             .assign({ basket })
             .write();
-    } else if (basket.includes(product) === true) {
+    } else {
         return `I'm Afraid I Cant Let You Do That ${customer.name}`;
     }
 };
