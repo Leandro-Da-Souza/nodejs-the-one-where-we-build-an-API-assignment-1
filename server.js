@@ -255,6 +255,19 @@ app.delete('/deleteFromBasket', async (req, res) => {
     res.send(data);
 });
 
+const getBasket = async custID => {
+    return await database
+        .get('store.customers')
+        .find({ id: custID })
+        .get('basket')
+        .value();
+};
+
+app.get('/getBasket', async (req, res) => {
+    let data = await getBasket(req.query.customerID);
+    res.send(data);
+});
+
 /* LISTEN TO SERVER */
 app.listen(PORT, () => {
     console.log(`Port open at ${PORT}...`);
