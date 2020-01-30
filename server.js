@@ -231,6 +231,9 @@ app.post('/addToBasket', async (req, res) => {
 const deleteFromBasket = async (custID, prodID) => {
     let customer = await getCustomer(custID);
     let product = await getProduct(prodID);
+    if (!product) {
+        return 'No such product found';
+    }
     let basket = await database
         .get('store.customers')
         .find({ id: custID })
