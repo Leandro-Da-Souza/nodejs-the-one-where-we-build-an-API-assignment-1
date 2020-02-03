@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Leandro-Da-Souza/nodejs-the-one-where-we-build-an-API-assignment-1#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "lowdb": "^1.0.0",
     "uuid": "^3.4.0"

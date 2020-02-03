@@ -1,17 +1,21 @@
 /* IMPORTS */
 const express = require('express');
 const lowdb = require('lowdb');
+const cors = require('cors');
 const FileSync = require('lowdb/adapters/FileSync');
 const uuid = require('uuid/v1');
 const adapter = new FileSync('store.json');
 const database = lowdb(adapter);
 const app = express();
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 8080;
 
 /* MODULE IMPORTS */
 const Product = require('./modules/Product.js');
 const Customer = require('./modules/Customer.js');
 // const ID = require('./modules/ID');
+
+/* MIDDLEWARE */
+app.use(cors());
 
 // INIT DATABASE
 const databaseInit = () => {
