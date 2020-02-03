@@ -5,34 +5,45 @@
         "id": "f6a796d0-3f60-11ea-80cd-8bb22b23e2bf",
         "name": "Dave",
         "email": "Imsorrydave@gmail.com",
-        "basket": [
-          {
-            "_id": "3b8790b0-3f5d-11ea-a964-8b07a75269e7",
-            "name": "DASDASD",
-            "price": "4000",
-            "img": "http://placeimg.com/640/480/DASDASD"
-          },
-          {
-            "_id": "48a17270-3f5d-11ea-ae6b-89a1d81796c1",
-            "name": "Holy",
-            "price": "Guacamole",
-            "img": "http://placeimg.com/640/480/Holy"
-          }
-        ]
+        "basket": []
       }
     ],
     "products": [
       {
-        "_id": "3b8790b0-3f5d-11ea-a964-8b07a75269e7",
-        "name": "DASDASD",
-        "price": "4000",
-        "img": "http://placeimg.com/640/480/DASDASD"
+        "_id": "0ba1cda0-4676-11ea-a285-71e9a76a28b3",
+        "name": "TV",
+        "price": "1000",
+        "img": "http://placeimg.com/640/480/TV"
       },
       {
-        "_id": "48a17270-3f5d-11ea-ae6b-89a1d81796c1",
-        "name": "Holy",
-        "price": "Guacamole",
-        "img": "http://placeimg.com/640/480/Holy"
+        "_id": "111f4a50-4676-11ea-8e34-7d03116d245e",
+        "name": "Motorcycle",
+        "price": "2000",
+        "img": "http://placeimg.com/640/480/Motorcycle"
+      },
+      {
+        "_id": "192b1300-4676-11ea-b475-9d9d3f50b248",
+        "name": "Gym Card",
+        "price": "500",
+        "img": "http://placeimg.com/640/480/Gym Card"
+      },
+      {
+        "_id": "20383060-4676-11ea-a3fe-03bb68794c1c",
+        "name": "Computer",
+        "price": "100000",
+        "img": "http://placeimg.com/640/480/Computer"
+      },
+      {
+        "_id": "2a850f70-4676-11ea-bd09-53af1456ca63",
+        "name": "Shoes",
+        "price": "20",
+        "img": "http://placeimg.com/640/480/Shoes"
+      },
+      {
+        "_id": "30bd50a0-4676-11ea-812b-ab85b0643aea",
+        "name": "Painting",
+        "price": "300",
+        "img": "http://placeimg.com/640/480/Painting"
       }
     ]
   }

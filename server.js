@@ -221,7 +221,10 @@ const addToBasket = async (custID, prodID) => {
             .assign({ basket })
             .write();
     } else {
-        return `I'm Afraid I Cant Let You Do That ${customer.name}`;
+        let error = {
+            error: `I'm Afraid I Cant Let You Do That ${customer.name}`
+        };
+        return error;
     }
 };
 
